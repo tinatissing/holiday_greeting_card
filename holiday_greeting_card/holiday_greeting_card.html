@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Holiday Greeting Card</title>
+    
+    <style> 
+	
+		#container {
+			width: 800px;
+			border: 10px solid #390;
+			padding: 20px;
+			background-image: url('images/christmas_tiling_background.jpeg');
+			margin-left: auto;
+			margin-right: auto;
+		}
+	
+		body {
+			background-color: #F00;
+			background-image: url('images/snowflake_tiling_background.gif');
+		}
+	
+		h1 {
+			text-decoration: underline;
+			font-weight: bold;
+			font-size: 40pt;
+			text-align: center;
+			font-family: Palatino Linotype, Book Antiqua, Palatino, serif
+		}
+		
+		#container h1 {
+			background-color: #F00;
+			color: #0C0;
+			font-family: Verdana, Geneva, sans-serif;
+		}
+	
+		p {
+			font-family: Verdana, Geneva, sans-serif;
+		}
+
+		#container p {
+			color: #900;
+			background-color: #6C6;
+			font-size: 15pt;
+		}
+	
+		.imageRight {
+			float:right;
+			margin-left: 10px;
+		}
+	
+		.imageLeft {
+			float:left;
+			margin-right: 10px;
+		}
+	
+		h3 {
+			background-color: #F03;
+			color: #0C0;
+			font-family: Verdana, Geneva, sans-serif;
+		}
+	
+		li {
+			background-color: #6C6;
+			color: #900;
+			text-transform: uppercase;
+			font-family: Verdana, Geneva, sans-serif
+		}
+		
+		form {
+			background-color: #F03;
+			color: #0C0;
+			font-family:Verdana, Geneva, sans-serif;
+		}
+		
+		#theSubmit {
+			background-color: #0C0;
+			padding: 5px;
+			font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+		}
+		
+		#theSubmit:hover {
+			background-color: #C00;
+			color: #FFF;
+		}
+		
+		#theReset {
+			background-color: #C00;
+			padding: 5px;
+			font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+			color: #FFF;
+		}
+		
+		#theReset:hover {
+			background-color: #0C0;
+			color: #000;
+		}
+	
+	</style>
+    
+    <script>
+	
+
+		function myFunction() {
+			
+			var storedName = document.myForm.theName.value;
+			var senderName = document.myForm.myName.value;
+			var storedMessage = document.myForm.theMessage.value;
+			var storedColor = document.myForm.theColor.value;
+			var storedFont = document.myForm.limited.value;
+			var borderSize = document.myForm.theRange.value;
+			var storedSubmit = document.myForm.theSubmit.value;
+			
+			document.getElementById("background").style.width= "500px";
+			document.getElementById("background").style.margin= "20px auto";	
+			document.getElementById("background").style.border = borderSize + "px solid #FFF";
+
+			if (document.getElementById("red").checked) {
+				document.getElementById("background").style.backgroundImage = "url('images/red_background.jpeg')";
+			}
+			else if (document.getElementById("green").checked) {
+				document.getElementById("background").style.backgroundImage = "url('images/green_background.jpeg')";			
+			}
+			else if (document.getElementById("white").checked) {
+				document.getElementById("background").style.backgroundImage = "url('images/white_background.jpeg')";
+			}
+			else if (document.getElementById("blue").checked) {
+				document.getElementById("background").style.backgroundImage = "url('images/blue_background.jpeg')";
+			}
+		
+			document.getElementById("outputName").innerHTML = "<h1>Merry Christmas " + storedName + "</h1>";
+			
+			document.getElementById("senderName").innerHTML = "<h2>Love " + senderName + "</h2>";
+			
+			document.getElementById("outputMessage").innerHTML = "<p>" + storedMessage + "</p>";
+			document.getElementById("outputMessage").style.fontWeight = "bold";
+			document.getElementById("outputMessage").style.color = storedColor;
+			document.getElementById("outputMessage").style.backgroundColor = "#FFF";
+			document.getElementById("outputMessage").style.fontSize = storedFont + "px";
+			
+			
+			
+			if (document.getElementById("santa").checked) {
+				document.getElementById("outputPicture").innerHTML = "<img src = 'images/cute_santa.png' width = '150' class = 'imageRight'>";
+			}
+			else if (document.getElementById("snowman").checked) {
+				document.getElementById("outputPicture").innerHTML = "<img src = 'images/cute_snowman.png' width = '150' class = 'imageRight'>";
+			}
+			else if (document.getElementById("holly").checked) {
+				document.getElementById("outputPicture").innerHTML = "<img src = 'images/holly.png' width = '150' class = 'imageRight'>";
+			}
+			else if (document.getElementById("present").checked) {
+				document.getElementById("outputPicture").innerHTML = "<img src = 'images/present.png' width = '150' class = 'imageRight'>";
+			}		
+		
+			return false;
+			
+		}
+	
+	</script>
+    
+</head>
+
+<body>
+
+	<div id="container">
+    
+	<h1>Holiday Greeting Card</h1>
+     <img src="images/santa.png" width="100" alt="Chubby Santa" class="imageRight">
+    
+    <p>	The holidays are fast approaching and the season of cuddling, roasting chestnuts on a fire, and spending time with those you love is here! Show your loved ones how much you appreciate them by making them their own customized Christmas greeting card for the Christmas holiday! </p>
+    
+    <h3>You Can Customize the Card by Adding/Picking...</h3>
+    <img src="images/snowman.png" width="100" alt="Cartoon Snowman" class="imageLeft">
+    	<ul>
+        	<li>Names</li>
+            <li>Special Messages</li>
+            <li>Pictures</li>
+            <li>Colours</li>
+            <li>Font Size</li>
+            <li>Border Size</li>
+        </ul>
+        
+	<form name="myForm" method="post" onSubmit="return myFunction()">
+    	
+        <label for="theName"> What is the Name of the Person this is To? </label>
+        <input type="text" name="username" id="theName"><br>
+        
+        <label for="myName"> What is the Name of the Person this is From? </label>
+        <input type="text" name="username" id="myName"><br>
+        
+        <label for="theImage"> Pick a Background </label><br>
+        <input type="radio" name="userImage" id="red" value="red"/>Red Background<br>
+        <input type="radio" name="userImage" id="green" value="green"/>Green Background<br>
+        <input type="radio" name="userImage" id="blue" value="blue"/>Blue Background<br>
+        <input type="radio" name="userImage" id="white" value="white"/>White Background<br>
+    
+        <label for="theMessage"> Please Enter the Message you Wish to Put on Your Card </label> 
+        <img src = "images/merry_christmas.png" width = "400" class = "imageRight">
+        <textarea rows= "4" cols="50" name="message" id="theMessage"></textarea><br>
+
+        <label for="theColor"> Pick a Text Colour </label>
+        <input type="color" name="userColor" id="theColor" /><br>
+
+        <label for="thePicture"> Pick a Little Picture</label><br>
+        <input type="radio" name="userPicture" id="santa" value="santa"/>Santa<br>
+        <input type="radio" name="userPicture" id="snowman" value="snowman"/>Snowman<br>
+        <input type="radio" name="userPicture" id="holly" value="holly"/>Holly<br>
+        <input type="radio" name="userPicture" id="present" value="present"/>Present<br>
+        
+        <label for="limited">Choose a Font Size</label>	      
+        <input type="number" name="limitNumber" id="limited" min="1" max="35" /><br>
+        
+        <label for="theRange">Pick a Border Size</label>
+        <input type="range" name="userRange" id="theRange" mix="1" max="10" step="1"/><br>
+        
+        <input type="submit" value="Process Form" id="theSubmit">
+        <input type="reset" value="Reset Form" id="theReset">
+    
+    </form>
+	
+    </div>
+
+		<div id="background"> 
+    		<div id="outputName"> </div>
+       		<div id="outputPicture"> </div>
+           	<div id="outputMessage"> </div>
+            <div id="senderName"> </div>
+        </div>
+
+</body>
+
+</html>
